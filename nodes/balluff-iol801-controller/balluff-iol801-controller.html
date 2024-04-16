@@ -1,0 +1,58 @@
+<script type="text/javascript">
+    RED.nodes.registerType('balluff-iol801-controller', {
+        category: 'balluff',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: "" },
+            hardware: { value: "Z036", required: true },
+            interval: { value: 1000, required: true, validate: RED.validators.number(), type: "number" },
+            acyclicinterval: { value: 10000, required: true, validate: RED.validators.number(), type: "number" }
+        },
+        inputs: 1,
+        outputs: 2,
+        // icon: "file.svg",
+        label: function () {
+            return this.name || "balluff-iol801-controller";
+        },
+
+        oneditprepare: function () {
+            const node = this;
+
+            const hardwareTypeInput = $('#node-input-hardware');
+            hardwareTypeInput.typedInput({
+                types: [
+                    {
+                        value: "hardware",
+                        options: [
+                            { value: "Z036", label: "Z036" },
+                            { value: "Z037", label: "Z037" }
+                        ]
+                    }
+                ]
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="balluff-iol801-controller">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-hardware"><i class="fa fa-plug"></i> Hardware type</label>
+        <input type="text" id="node-input-hardware">
+    </div>
+    <div class="form-row">
+        <label for="node-input-interval"><i class="fa fa-plug"></i> Resend interval (ms)</label>
+        <input type="text" id="node-input-interval">
+    </div>
+    <div class="form-row">
+        <label for="node-input-acyclicinterval"><i class="fa fa-plug"></i> Acyclic Resend interval (ms)</label>
+        <input type="text" id="node-input-acyclicinterval">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="balluff-iol801-controller">
+    <p></p>
+</script>

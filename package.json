@@ -13,7 +13,8 @@
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
-      "balluff-smartlight-controller": "nodes/balluff-smartlight-controller/balluff-smartlight-controller.js"
+      "balluff-smartlight-controller": "nodes/balluff-smartlight-controller/balluff-smartlight-controller.js",
+      "balluff-iol801-controller": "nodes/balluff-iol801-controller/balluff-iol801-controller.js"
     }
   }
 }
